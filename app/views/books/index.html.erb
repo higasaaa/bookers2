@@ -11,7 +11,7 @@
     <% end %>
 
 <!--テンプレート-->
-    <%= render 'user_info', user: @user %>
+    <%= render 'user_info' %>
 
           <div class="col-md-8" offset-md-1>
             <h2>Books</h2>
@@ -31,7 +31,7 @@
                     <td><a href="/users/<%= @user.id %>">
                       <%= image_tag @user.get_profile_image(100,100) %></a>
                     </td>
-                    <td><%= link_to book.title, book_path(book.id) %></td>
+                    <td><%= link_to book.title, book_path(book.id) %></td> <!--自分の一覧に飛んでいる？ books/show（userの一覧）に飛びたい-->
 
                     <td><%= book.body %></td>
                   </tr>

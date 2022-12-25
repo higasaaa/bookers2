@@ -8,33 +8,39 @@
         <% end %>
       </ul>
       <% end %>
-      
+
+  <p id="notice"></p>
   <div class="container">
     <div class="row">
       <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+
         <h2>User info</h2>
-        <%= form_with model: @user do |f| %>
+
+        <form enctype="multipart/form-data" action="/users/<%= @user.id %>" accept-charset="UTF-8" method="post">
+          <%= form_with model: @user do |f| %>
+
           <div class="form-group">
             <label for="user_name">Name</label>
-            <%= f.text_field :name, autofocus: true,id:"inputName", placeholder:"Name" %>
-            
+            <input class="form-control name" type+"text" name="user[name]" id="user_name">
           </div>
-        
+
           <div class="form-group">
             <label for="user_image">Image</label>
-            <%= f.file_field :profile_image, placeholder:"Image", accept:"image/*" %>
+            <input class="form-control-file user_image" accept="image/*" type="file" name="user[profile_image]" id="user_profile_image">
           </div>
-        
+
           <div class="form-group">
             <label for="user_introduction">Introduction</label>
-            <%= f.text_area :introduction, autofocus: true,id:"inputIntroduction", placeholder:"Introduction" %>
+            <textarea class="form-control introduction" name="user[introduction]" id="user_introduction"></textarea>
+            <!--<= f.text_area :introduction, autofocus: true,id:"inputIntroduction", placeholder:"Introduction" %>-->
           </div>
-          
+
           <div class="form_group">
-            <%= f.submit"Update User" %>
+            <input type="submit" name="commit" value="Update User" class="btn btn-secondary" data-disable-with="Update User">
           </div>
-          
+
         <% end %>
+        </form>
       </div>
     </div>
   </div>

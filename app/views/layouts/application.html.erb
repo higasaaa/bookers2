@@ -15,15 +15,11 @@
   </head>
 
   <body>
-  <!--  <div class="flash-notifications">-->
-  <!--< flash.each do |key, value| %>-->
-  <!-- <= content_tag(:div, value, class: key) %>-->
-  <!--< end %>-->
-</div>
+<!--</div>-->
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-          <a class="navbar-brand">
+          <a class="navbar-brand" href="/">
             <span><%= link_to root_path do %> Bookers</span> 
           </a>
           <button class="navbar-toggler" type="button" data-toggler="collapse" data-target="#navbarNavDropdown"
@@ -31,8 +27,9 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <% if user_signed_in? %>
             <ul class="navbar-nav ml-auto">
+            <% if user_signed_in? %>
+
               <li>
                 <%= link_to user_path(current_user.id) do %>
                 <i class="fas fa-home"></i>
