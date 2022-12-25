@@ -20,7 +20,7 @@
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
           <a class="navbar-brand" href="/">
-            <span><%= link_to root_path do %> Bookers</span> 
+            <span><%= link_to root_path do %> Bookers</span>
           </a>
           <button class="navbar-toggler" type="button" data-toggler="collapse" data-target="#navbarNavDropdown"
           aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -86,6 +86,18 @@
         </div>
       </nav>
     </header>
+
+　　　<% if current_user.errors.any? %>
+　　　こんにちは
+        <%= current_user.errors.count %>errors prohibited this obj from being saved:
+      <ul>
+        <% current_user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+      <% end %>
+      </ul>
+        <% end %>
+
+
     <%= yield %>
     <% end %>
     <footer>

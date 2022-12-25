@@ -1,19 +1,10 @@
 
-<body>
-  <main>
-    <% if @book.errors.any? %>
-      <%= @book.errors.count %>errors prohibited this obj from being saved:
-      <ul>
-        <% @book.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    <% end %>
 
-<!--テンプレート-->
+  <main>
+    <!--テンプレート-->
     <%= render 'user_info' %>
 
-          <div class="col-md-8" offset-md-1>
+          <div class="col-md-8 offset-md-1">
             <h2>Books</h2>
               <table class="table table-hover table-inverse">
                 <thead>
@@ -21,7 +12,7 @@
                     <td></td>
                     <td>Title</td>
                     <td>Opinion</td>
-                    <td colspan="3"></td>
+                    <th colspan="3"></th>
                   </tr>
                 </thead>
 
@@ -31,7 +22,7 @@
                     <td><a href="/users/<%= @user.id %>">
                       <%= image_tag @user.get_profile_image(100,100) %></a>
                     </td>
-                    <td><%= link_to book.title, book_path(book.id) %></td> <!--自分の一覧に飛んでいる？ books/show（userの一覧）に飛びたい-->
+                    <td><%= link_to book.title, book_path(book.id) %></td> 
 
                     <td><%= book.body %></td>
                   </tr>
@@ -45,19 +36,8 @@
 </body>
 
 
-<!--< if @user == current_user %>-->
-<!--  >-->
-<!--< end %>-->
 
 
-
-<!--< if user.image.attached? %>-->
-<!--  <= image_tag user.image, size:"100x100" %>-->
-<!--< else %>-->
-<!--  <= image_tag 'default-image', size:"100x100" %>-->
-<!--< end %>-->
-<!--画像-->
-<!--<= f.file_field :image, accept:"image/*" %>-->
 
 
 
