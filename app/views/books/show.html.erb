@@ -23,7 +23,7 @@
           </table>
 
           <div class="row">
-            <a class="btn btn-outline-secoundary btn-block edit_user_path" href="/users/<%= @user.id %>/edit">
+            <a class="btn btn-outline-secoundary btn-block edit_user_path" href="/users/1/edit">
             <i class="fas fa-user-cog"></i>
             </a>
           </div>
@@ -63,7 +63,7 @@
               </td>
               <td><%= book.body %></td>
               <td>
-                <a class="btn btn-sm btn-success edit_book_path" href="/books/<%= @book.id %>/edit">Edit</a> <!--Edit飛ばない-->
+                <a class="btn btn-sm btn-success edit_book_path" href="/books/<%= book.id %>/edit">Edit</a> <!--Edit飛ばない-->
               </td>
               <td>
                 <a data-confirm="本当に消しますか？" class="btn btn-sm btn-danger destroy_book_path" rel="nofollow" data-method="delete" href="/books/<%= book.id %>">Destroy</a>

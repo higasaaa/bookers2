@@ -5,13 +5,15 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          # 1:Nの1側が削除されたとき、N側を全て削除する
   has_many :books, dependent: :destroy
+
   
-   validates :name, presence: true
-         
-  
+   validates :name, presence: true, length: { in: 2..20 }
+   validates :introduction, presence: true, length: { maximum: 50 }
+
+
   # profile画像をActiveStorageで保存できるようにする
   has_one_attached :profile_image
-         
+
   def get_profile_image(width, height)
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpeg')

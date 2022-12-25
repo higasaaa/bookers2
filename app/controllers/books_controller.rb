@@ -1,12 +1,17 @@
 class BooksController < ApplicationController
 
+  before_action :authenticate_user!
+# ユーザーがログインしてなかったらログインページに行くようにする
+
   def create
     # title,bodyが＠bookに格納されている
     @book = Book.new(book_params) #bookを保存したいだけだからidはいらない
     @book.user_id = current_user.id #誰が投稿したかわかるようにするための記述
     if @book.save #保存する
-      redirect_to book_path(@book.id)
+      redirect_to books_path(@book.id)
     else
+      @user = current_user
+      @books = Book.all
       render :index
     end
   end
@@ -26,12 +31,16 @@ class BooksController < ApplicationController
 
   def edit
     @book = Book.find(params[:id])
+
   end
 
   def update
-    book = Book.find(params[:id])
-    book.update(book_params)
-    redirect_to book_path(book.id)
+    @book = Book.find(params[:id])
+    if @book.update(book_params)
+      redirect_to book_path(@book.id)#user/showに飛ぶ
+    else
+      render :edit
+    end
   end
 
   def destroy
