@@ -1,5 +1,11 @@
 <!--message-->
   <main>
+    
+   <div class="flash-notifications">
+    <% flash.each do |key, value| %>
+     <%= content_tag(:div, value, class: key) %>
+    <% end %>
+  
     <p id="notice"></p>
     <div class="container px-5 px-sm-0">
       <div class="row">

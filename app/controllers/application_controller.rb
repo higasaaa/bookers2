@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   add_flash_types :success, :info, :warnind, :danger
 
   # サインアウト,サインイン後にどこに遷移するかを設定するメソッド
-  
+
 
   def after_sign_in_path_for(resource)
     user_path(current_user.id)
@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    devise_parameter_sanitizer.permit(:sign_up, keys:[:name, :email, :introduction])
   end
 end
 

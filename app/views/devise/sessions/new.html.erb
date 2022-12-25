@@ -1,6 +1,11 @@
-<h2>Log in</h2>
 
-<!--<= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>-->
+<!--Flash-->
+ <div class="flash-notifications">
+  <% flash.each do |key, value| %>
+   <%= content_tag(:div, value, class: key) %>
+  <% end %>
+  
+<h2>Log in</h2>
 <%= form_with model: @user, url: user_session_path do |f| %>
   <div class="field">
     <%= f.label :name %><br />

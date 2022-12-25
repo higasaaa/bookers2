@@ -6,9 +6,9 @@ class User < ApplicationRecord
          # 1:Nの1側が削除されたとき、N側を全て削除する
   has_many :books, dependent: :destroy
 
-  
+
    validates :name, presence: true, length: { in: 2..20 }
-   validates :introduction, presence: true, length: { maximum: 50 }
+   validates :introduction, length: { maximum: 50 }
 
 
   # profile画像をActiveStorageで保存できるようにする
