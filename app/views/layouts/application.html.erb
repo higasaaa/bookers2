@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html class="fontawesome-i2svg-active fontawesome-i2svg-com plate">
+<html class="fontawesome-i2svg-active fontawesome-i2svg-complate">
   <head>
+    <title>Bookers2Ver2</title>
+    <!--<meta name="csrf-param" content="authenticity_token"></meta>-->
+    <!--<mata name="csrf-token" content="fQsFl-B-a4SzT"></mata>-->
     <style type="text/css"></style>
     <link rel="stylesheet" media="all" data-turbolinks-track="reload">
     <!--<script src="/packs/js/application-8c498bd08fe3c47f4c35.js" data-turbolinks-track="reload"></script>-->
@@ -21,11 +24,11 @@
           <a class="navbar-brand" href="/">
             <span><%= link_to root_path, class: "nav-link text-light" do %> Bookers</span>
           </a>
-          <button class="navbar-toggler" type="button" data-toggler="collapse" data-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <div class="navbar-collapse collapse show" id="navbarNavDropdown" style>
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
 
