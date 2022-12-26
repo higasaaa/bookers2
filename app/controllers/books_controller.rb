@@ -11,7 +11,7 @@ class BooksController < ApplicationController
     @book = Book.new(book_params) #bookを保存したいだけだからidはいらない
     @book.user_id = current_user.id #誰が投稿したかわかるようにするための記述
     if @book.save #保存する
-      redirect_to book_path(@book.id)
+      redirect_to book_path(@book.id),notice: 'You have created book successfully.'
     else
       @user = current_user
       @books = Book.all
@@ -47,7 +47,7 @@ class BooksController < ApplicationController
     # @user = current_user
     @book = Book.find(params[:id])
     if @book.update(book_params)
-      redirect_to book_path(@book.id), notice: 'You have updated user successfully.'
+      redirect_to book_path(@book.id), notice: 'You have updated book successfully.'
     else
       render :edit
 

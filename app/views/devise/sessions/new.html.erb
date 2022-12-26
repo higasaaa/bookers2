@@ -6,23 +6,21 @@
       <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
 
         <h2>Log in</h2>
-
-        <form action="/users/sign_in" accept-charset="UTF-8" method="post">
           <%= form_with model: @user, url: user_session_path do |f| %>
         <input type="hidden" name="authenticity_token" autocomplete="off">
 
           <div class="field">
-            <label for="user_name">Name</label><br>
-            <input autofocus="autofocus" class="name" type="text" value name="user [name]" id="user_name">
-            <!--<= f.label :name %><br />-->
-            <!--<= f.text_field :name, autofocus: true, autocomplete: "name" %>-->
+            <!--<label for="user_name">Name</label><br>-->
+            <!--<input autofocus="autofocus" class="name" type="text" value name="user [name]" id="user_name">-->
+            <%= f.label :name %><br />
+            <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
           </div>
 
           <div class="field">
-            <label for="user_password">Password</label><br>
-            <input autocomplete="off" class="password" type="password" name="user [password]" id="user_password">
-            <!--<= f.label :password %><br />-->
-            <!--%= f.password_field :password, autocomplete: "current-password" %>-->
+            <!--<label for="user_password">Password</label><br>-->
+            <!--<input autocomplete="off" class="password" type="password" name="user [password]" id="user_password">-->
+            <%= f.label :password %><br />
+            <%= f.password_field :password, autocomplete: "current-password" %>
           </div>
 
           <div class="field">
@@ -33,10 +31,11 @@
           </div>
 
           <div class="actions">
-            <input type="submit" name="commit" value="Log in" class="btn btn-sm btn-primary" data-disable-with="Log in">
+            <%= f.submit 'Log in', class: "btn btn-sm btn-primary" %>
           </div>
         <% end %>
-        </form>
+
+
         <%= render "devise/shared/links" %>
       </div>
     </div>

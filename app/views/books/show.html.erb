@@ -1,5 +1,8 @@
-    <main>
-
+<main>
+  <div class="flash-notifications">
+    <% flash.each do |key, value| %>
+     <%= content_tag(:div, value, class: key) %>
+    <% end %>
       <!--テンプレート-->
     <p id="notice"></p>
       <div class="container px-5 px-sm-0">
@@ -76,7 +79,10 @@
           </tbody>
         </table>
       </div>
-    </main>
+      </div>
+      </div>
+  </div>
+</main>
 
 
 

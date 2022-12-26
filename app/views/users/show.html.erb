@@ -1,12 +1,14 @@
 <!--message-->
-  <main>
-
-   <div class="flash-notifications">
+<main>
+  <div class="container px-5 px-sm-0">
+    <div class="row">
+    <div class="flash-notifications">
     <% flash.each do |key, value| %>
      <%= content_tag(:div, value, class: key) %>
     <% end %>
-
-    <%= render 'books/user_info', user: @user %>
+    </div>
+    <!--userの一覧-->
+    <%= render 'books/user_info', book: @book, user: @user %>
 
         <div class="col-md-8 offset-md-1">
           <h2>Books</h2>
@@ -34,7 +36,7 @@
         </div>
       </div>
     </div>
-  </main>
+</main>
 
 
 

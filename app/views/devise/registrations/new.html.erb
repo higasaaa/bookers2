@@ -5,7 +5,6 @@
       <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
 
        <h2>Sign up</h2>
-       <form id="new_user" class="new_user" action="/users" accept-charset="UTF-8" method="post">
        <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user' do |f| %>
        <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -36,7 +35,7 @@
            <input type="submit" name="commit" value="Sign up" class="btn btn-sm btn-success" data-disable-with="Sign up" >
          </div>
        <% end %>
-       </form>
+ 
        <%= render "devise/shared/links" %>
        <br>
       </div>
