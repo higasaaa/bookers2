@@ -1,12 +1,11 @@
 <main>
   <p id="notice"></p>
   <div class="container px-5 px-sm-0">
-    
 　　<div class="flash-notifications">
       <% flash.each do |key, value| %>
        <%= content_tag(:div, value, class: key) %>
       <% end %>
-      </div>
+    </div>
         <div class="row">
       <!--テンプレート-->
       <%= render 'user_info', book: @book, user: @user %>
@@ -41,7 +40,6 @@
           </tbody>
         </table>
       </div>
-    </div>
   </div>
 </main>
 
