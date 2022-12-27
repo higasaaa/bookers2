@@ -1,26 +1,24 @@
 <main>
   <p id="notice"></p>
-  <div class="container px-5 px-sm-0">
+  <div class="container">
 　　<div class="flash-notifications">
       <% flash.each do |key, value| %>
        <%= content_tag(:div, value, class: key) %>
       <% end %>
     </div>
-        <div class="row">
+    <div class="row">
       <!--テンプレート-->
-      <%= render 'user_info', book: @book, user: @user %>
-      <!--<p id="notice"></p>-->
-
-          <!--<div class="col-md-3">-->
-
-      <div class="col-mb-8 offset-md-1">
+        <%= render 'user_info', book: @book, user: @user %>
+      <div class="col-md-8 offset-md-1">
         <h2>Book detail</h2>
         <table class="table">
           <tbody>
             <tr>
               <td>
+                <%=link_to user_path(@user.id) do %>
                 <%= image_tag @user.get_profile_image(100,100) %><br>
-                <%=link_to @user.name, user_path(@user.id) %>
+                <%= @user.name %>
+                <% end %>
               </td>
               <td>
                 <%= link_to @book.title, book_path(@book.id) %>
@@ -40,6 +38,7 @@
           </tbody>
         </table>
       </div>
+  </div>
   </div>
 </main>
 
